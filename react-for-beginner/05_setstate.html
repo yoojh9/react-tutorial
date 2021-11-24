@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<!-- jsx를 브라우저가 이해할 수 있는 코드로 변환시키려면 babel이 필요 -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    const root = document.getElementById("root");
+
+    const App = () => {
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter + 1) // state가 바뀌면 리액트가 자동으로 컴포넌트를 리렌더링 함
+        }
+
+        return (
+            <div>
+                <h3>Total Clicks: {counter}</h3>
+                <button onClick={onClick}>Click me</button>
+            </div>
+        )
+    }
+
+    ReactDOM.render(<App />, root);
+</script>
+
+</html>

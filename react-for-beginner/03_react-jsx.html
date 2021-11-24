@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- jsx를 브라우저가 이해할 수 있는 코드로 변환시키려면 babel이 필요 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        // 이런 코드들이 babel.js를 사용하여 React.createElement() 코드로 변환됨
+        const root = document.getElementById('root');
+        const Title = () => (
+            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
+        )
+        const Button = () => (
+            <button style={{
+                backgroundColor: 'tomato',
+            }} 
+            onClick={() => console.log("I'm clicked")}>
+            Click me</button>
+        )
+        // React로 만든 Dom 요소는 대문자로 시작해야 함
+        const Container = () => (<div>
+            <Title/>
+            <Button/>
+        </div>
+        )
+
+        ReactDOM.render(<Container/>, root);
+
+    </script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<!-- jsx를 브라우저가 이해할 수 있는 코드로 변환시키려면 babel이 필요 -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    const App = () => {
+        const [amount, setAmount] = React.useState("");
+        const [flipped, setFlipped] = React.useState(false);
+        const onChange = (event) => {
+            setAmount(event.target.value)
+        }
+        const reset = () => setAmount(0);
+        const onFlip = () => {
+            reset();
+            setFlipped(current => !current)
+        };
+
+        return (
+            // html과 jsx는 문법적으로 약간 차이가 있음. (class -> className, for -> htmlFor)
+            <div>
+                <h1 className="hi">Super Converter</h1>
+
+                <div>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input
+                        id="minutes"
+                        placeholder="Minutes"
+                        type="number"
+                        value={flipped ? amount * 60 : amount}
+                        onChange={onChange}
+                        disabled={flipped} />
+                </div>
+                <div>
+                    <h4>You want to convert {amount}</h4>
+                    <label htmlFor="hours">Hours</label>
+                    <input
+                        id="hours"
+                        placeholder="Hours"
+                        type="number"
+                        value={flipped ? amount : Math.round(amount / 60)}
+                        onChange={onChange}
+                        disabled={!flipped} />
+                </div>
+                <button onClick={reset}>reset</button>
+                <button onClick={onFlip}>flip</button>
+            </div>
+        )
+    }
+
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+</script>
+
+</html>
