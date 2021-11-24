@@ -1,5 +1,7 @@
 # ReactJS로 영화 웹 서비스 만들기
 
+노마드코더 'ReactJS로 영화 웹 서비스 만들기' 강의를 보며 따라한 코드
+
 ### 1. react-for-begginer
 간단한 react 개념 학습
 
