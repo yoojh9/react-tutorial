@@ -25,5 +25,5 @@ API request response 처리
 <br>
 
 ### 5. movie-app
-React Router 학습
+React Router 학습  
 useEffect(), useStates(), useParams() 사용
