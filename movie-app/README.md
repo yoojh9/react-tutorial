@@ -30,21 +30,20 @@ $ npm install react-router-dom
 html, css, javascript를 올리면 웹사이트로 만들어서 배포해 줌
 
 ```
-    $ npm install gh-pages
+$ npm install gh-pages
 ```
 
 package.json에 homepage를 추가해주고,
 
 ```
-  "homepage": "https://{username}.github.io/{repository}"
-
+"homepage": "https://{username}.github.io/{repository}"
 ```
 
 npm script를 아래와 같이 작성
 
 ```
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+"deploy": "gh-pages -d build",
+"predeploy": "npm run build"
 ```
 
 $npm run deploy 실행 시 predeploy가 먼저 실행 됨
